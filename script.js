@@ -58,3 +58,13 @@ async function getNextWord() {
   })
   input.focus();
 }
+function showResult() {
+    //resultaat krjgt inhoud en verschijnt, resetknop verschijnt, startknop en woordcontainer verdwijnen
+    const resultText = `Je typte ${correctWordsCounted} woord(en) (${charactersTyped} karakters) per minuut.`;
+    result.textContent = resultText;
+    result.style.display = "block";
+    resetButton.style.display = "block";
+    startButton.style.display = "none";
+    wordContainer.style.display = "none";
+  }
+  
