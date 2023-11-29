@@ -55,7 +55,7 @@ async function getNextWord() {
             }, 500);
         }
     }
-  })
+  });
   input.focus();
 }
 function showResult() {
@@ -68,3 +68,28 @@ function showResult() {
     wordContainer.style.display = "none";
   }
   
+  startButton.addEventListener("click", () => {
+    startButton.style.display = "none";
+    instruction.style.display = "none";
+    seconds = 60;
+    correctWordsCounted = 0;
+    charactersTyped = 0;
+    wordsIndex = 0;
+    wordContainer.innerHTML = "";
+    timer.textContent = seconds;
+    startTimer();
+    getNextWord();
+  });
+  
+  resetButton.addEventListener("click", () => {
+    resetButton.style.display = "none";
+    startButton.style.display = "block";
+    result.style.display = "none";
+    seconds = 60;
+    charactersTyped = 0;
+    correctWordsCounted = 0;
+    wordsIndex = 0;
+    wordContainer.innerHTML = "";
+    instruction.style.display = "block";
+    timer.textContent = seconds;
+  });
