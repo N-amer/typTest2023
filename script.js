@@ -30,3 +30,10 @@ function startTimer() {
 
     }, 1000);
 }
+
+// async maakt vhet resultaat van de functie een promise/belofte
+async function getNextWord() {
+    const response = await fetch("https://random-word-bit.vercel.app/word"); // lekker wachten tot voltooiing, zodat je niet vast komt te zitten terwijl je wacht.
+    const randomWord = JSON.parse(await response.text()); // parse maakt de JSON object een string van.
+
+}
