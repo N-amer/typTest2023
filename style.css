@@ -2,11 +2,28 @@ body{
     padding: 0;
     margin: 0;
 }
+#image {
+    background-image: url('img/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+}
 .typTestContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100vh;
+}
+.mid-section{
+    background: transparent;
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 20px;
 }
 
 #timer {
