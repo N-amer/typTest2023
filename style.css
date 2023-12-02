@@ -23,6 +23,14 @@ body{
     flex-direction: column;
     height: 100vh;
 }
+.upper-section{
+    color: white;
+    transform: translateY(50%);
+    transition: transform 0.5s ease;
+}
+.typTestContainer:hover .upper-section{
+transform: translateY(0);
+}
 .mid-section{
     background: transparent;
     backdrop-filter: blur(10px);
