@@ -9,11 +9,13 @@ let intervalId;
 const timer = document.getElementById("timer");
 const instruction = document.getElementById("instruction");
 const startButton = document.getElementById("startButton");
+const stopButton = document.getElementById("stopButton")
 const resetButton = document.getElementById("resetButton");
 const wordContainer = document.getElementById("wordContainer");
 const result = document.getElementById("result");
 
 resetButton.style.display = "none"; // op het begin zal de reset knop niet verschijnen
+stopButton.style.display = "none";
 
 function startTimer() {
   let intervalId = setInterval(() => {
@@ -45,6 +47,7 @@ async function getNextWord() { //het resultaat wordt een promise.
 
   const inputElement = document.createElement("input"); // pak de inputveld van de html
   inputElement.type = "text";
+  inputElement.classList.add("textField")
   inputElement.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       const userInput = inputElement.value.trim().toLowerCase();
@@ -83,6 +86,7 @@ function showResult() {
 
 startButton.addEventListener("click", () => {
   startButton.style.display = "none";
+  stopButton.style.display = "block";
   instruction.style.display = "none";
   timerSeconds = 60;
   correctWordCount = 0;
@@ -92,6 +96,11 @@ startButton.addEventListener("click", () => {
   timer.textContent = timerSeconds;
   startTimer();
   getNextWord();
+});
+
+stopButton.addEventListener("click", () => {
+  showResult();
+  stopButton.style.display = "none";
 });
 
 resetButton.addEventListener("click", () => {

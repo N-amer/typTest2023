@@ -27,7 +27,7 @@ body{
 }
 .upper-section{
     color: white;
-    transform: translateY(50%);
+    transform: translateY(40%);
     transition: transform 0.5s ease;
 }
 
@@ -36,13 +36,26 @@ body{
 }
 
 h1{
-font-size: 4rem;
+    font-size: 4rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    padding: 10px;
+    filter: drop-shadow(20px 7px 5px rgb(174, 174, 174));
 }
+
+#timer {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
 .mid-section{
-    background: transparent;
-    backdrop-filter: blur(10px);
-    padding: 50px;
+    background-color:rgb(248, 248, 248);
+    backdrop-filter: blur(50px);
+    margin-top: 20px;
+    text-align: center;
+    padding: 30px;
     border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 #timer {
@@ -55,9 +68,11 @@ font-size: 4rem;
 #instruction {
     color: red;
     font-weight: bold;
+    font-size: 1rem;
 }
 
 #result {
+    font-size: 1rem;
     margin-top: 20px;
     padding-bottom: 10px;
     color: red;
@@ -66,6 +81,25 @@ font-size: 4rem;
 .word {
     color: red;
     margin-bottom: 5px;
+}
+
+.words {
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+    padding: 10px;
+}
+
+.textField {
+    width: 600px;
+    padding: 8px;
+    display: flex;
+    flex: 1;
+    padding: 0 0px 0 16px;
+    height: 40px;
+    border-radius: 40px 0 0 40px;
+    border: 2px solid #ccc;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
 }
 
 .shake-animation {
