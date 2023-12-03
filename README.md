@@ -1,4 +1,4 @@
-# typTest2023
+# TYPTEST2023
 
 ## Overview
 
