@@ -81,6 +81,7 @@ function showResult() {
   result.style.display = "block";
   resetButton.style.display = "block";
   startButton.style.display = "none";
+  stopButton.style.display = "none";
   wordContainer.style.display = "none";
 }
 
@@ -105,6 +106,7 @@ stopButton.addEventListener("click", () => {
 
 resetButton.addEventListener("click", () => {
   resetButton.style.display = "none";
+  stopButton.style.display = "none";
   startButton.style.display = "block";
   result.style.display = "none";
   timerSeconds = 60;
