@@ -102,6 +102,21 @@ h1{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 
 }
+#startButton {
+    background-color: #45a049; 
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+#startButton:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
 
 .shake-animation {
     animation: shake 0.5s;
