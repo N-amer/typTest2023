@@ -76,7 +76,7 @@ async function getNextWord() { //het resultaat wordt een promise.
 
 function showResult() {
   //resultaat krjgt inhoud en verschijnt, resetknop verschijnt, startknop en woordcontainer verdwijnen
-  const resultText = `Je typte ${correctWordCount} woord(en) (${charactersTyped} karakters) per minuut.`;
+  const resultText = `You typed ${correctWordCount} word(s), ${charactersTyped} characters per minute.`;
   result.textContent = resultText;
   result.style.display = "block";
   resetButton.style.display = "block";
