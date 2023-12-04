@@ -88,6 +88,7 @@ function showResult() {
 startButton.addEventListener("click", () => {
   startButton.style.display = "none";
   stopButton.style.display = "block";
+  wordContainer.innerHTML = "block";
   instruction.style.display = "none";
   timerSeconds = 60;
   correctWordCount = 0;
