@@ -5,7 +5,7 @@ let charactersTyped = 0;
 let intervalId;
 
 
-// pak alle id's van de HTML
+// pak alle id's van de HTML.
 const timer = document.getElementById("timer");
 const instruction = document.getElementById("instruction");
 const startButton = document.getElementById("startButton");
@@ -14,13 +14,13 @@ const resetButton = document.getElementById("resetButton");
 const wordContainer = document.getElementById("wordContainer");
 const result = document.getElementById("result");
 
-resetButton.style.display = "none"; // op het begin zal de reset knop niet verschijnen
+resetButton.style.display = "none"; // op het begin zal de reset knop niet verschijnen.
 stopButton.style.display = "none";
 
 function startTimer() {
    intervalId = setInterval(() => {
-    // met het ID kan je de setinterval later stoppen met clearInterval
-    timerSeconds--; // hiermee zeg je dat de waarde van de tijd afgeteld moet worden
+    // met het ID kan je de setinterval later stoppen met clearInterval.
+    timerSeconds--; // hiermee zeg je dat de waarde van de tijd afgeteld moet worden.
     timer.textContent = timerSeconds; // dus: Timer eLement = timerSeconds = 60 seconden, het print alleen de inhoud.
     if (timerSeconds === 0) {
       // als de tijdwaarde 0 is, laat het aftellen stoppen en het resultaat zichtbaar maken.
@@ -34,7 +34,7 @@ async function getNextWord() { //het resultaat wordt een promise.
   // een promise helpt je om dingen op het juiste volgorde te zetten 
   // zodat je niet vast blijft te zitten, terwijl je wacht.
   const response = await fetch("https://random-word-bit.vercel.app/word"); // lekker wachten tot voltooiing.
-  const randomWord = JSON.parse(await response.text()); // hier ook, parse maakt de JSON text een string van
+  const randomWord = JSON.parse(await response.text()); // hier ook, parse maakt de JSON text een string van.
 
   while (wordContainer.firstChild) {
     wordContainer.removeChild(wordContainer.firstChild);
@@ -42,12 +42,12 @@ async function getNextWord() { //het resultaat wordt een promise.
 
   const wordElement = document.createElement("div"); // maak een nieuwe div aan
   wordElement.classList.add("words"); // het voegen van een class in de div
-  wordElement.textContent = randomWord[0].word; // 
+  wordElement.textContent = randomWord[0].word; // de inhoud van de 1ste object pakken en het uitprinten in HTML.
   wordContainer.appendChild(wordElement);
 
   const inputElement = document.createElement("input"); // pak de inputveld van de html
   inputElement.type = "text";
-  inputElement.classList.add("textField")
+  inputElement.classList.add("textField");
   inputElement.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       const userInput = inputElement.value.trim().toLowerCase();
@@ -75,7 +75,7 @@ async function getNextWord() { //het resultaat wordt een promise.
 }
 
 function showResult() {
-  //resultaat krjgt inhoud en verschijnt, resetknop verschijnt, startknop en woordcontainer verdwijnen
+  //resultaat krjgt inhoud en verschijnt, resetknop verschijnt, startknop en woordcontainer verdwijnen.
   const resultText = `You typed ${correctWordCount} word(s), ${charactersTyped} characters per minute.`;
   result.textContent = resultText;
   result.style.display = "block";
