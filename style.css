@@ -86,7 +86,8 @@ h1{
 
 .words {
     font-family: Georgia, serif;
-    font-size: 1.25rem;
+    font-weight: bold;
+    font-size: 1.50rem;
     padding: 10px;
 }
 

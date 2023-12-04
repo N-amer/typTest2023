@@ -18,7 +18,7 @@ resetButton.style.display = "none"; // op het begin zal de reset knop niet versc
 stopButton.style.display = "none";
 
 function startTimer() {
-  let intervalId = setInterval(() => {
+   intervalId = setInterval(() => {
     // met het ID kan je de setinterval later stoppen met clearInterval
     timerSeconds--; // hiermee zeg je dat de waarde van de tijd afgeteld moet worden
     timer.textContent = timerSeconds; // dus: Timer eLement = timerSeconds = 60 seconden, het print alleen de inhoud.
@@ -100,6 +100,7 @@ startButton.addEventListener("click", () => {
 });
 
 stopButton.addEventListener("click", () => {
+  clearInterval(intervalId);
   showResult();
   stopButton.style.display = "none";
 });
