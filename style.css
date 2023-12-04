@@ -118,6 +118,22 @@ h1{
     transform: scale(1.05);
 }
 
+#resetButton {
+    background-color: black; 
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+#resetButton:hover {
+    background-color:rgb(47, 47, 47);
+    transform: scale(1.05);
+}
+
 .shake-animation {
     animation: shake 0.5s;
 }
