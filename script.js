@@ -118,4 +118,5 @@ resetButton.addEventListener("click", () => {
   wordContainer.innerHTML = "";
   instruction.style.display = "block";
   timer.textContent = timerSeconds;
+  location.reload();
 });
