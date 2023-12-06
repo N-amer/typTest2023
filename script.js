@@ -3,7 +3,6 @@ let wordsIndex = 0;
 let correctWordCount = 0;
 let charactersTyped = 0;
 let intervalId;
-let debounceTimer;
 
 // pak alle id's van de HTML.
 const timer = document.getElementById("timer");
@@ -52,23 +51,22 @@ async function getNextWord() {
   inputElement.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() =>{
-        const userInput = inputElement.value.trim().toLowerCase();
-        const correctWord = randomWord[0].word.toLowerCase();
-        charactersTyped += userInput.length;
-        if (userInput === correctWord) {
-          correctWordCount++;
-          wordsIndex++;
-          getNextWord();
-        } else {
-          inputElement.value = ""; // Reset de waarde van het invoerveld
-          inputElement.placeholder = randomWord[0].word;
-          inputElement.classList.add("shake-animation");
-          setTimeout(() => {
-            inputElement.classList.remove("shake-animation");
-          }, 500);
-        }
-      }, 1);
+      const userInput = inputElement.value.trim().toLowerCase();
+      const correctWord = randomWord[0].word.toLowerCase();
+      charactersTyped += userInput.length;
+
+      if (userInput === correctWord) {
+        correctWordCount++;
+        wordsIndex++;
+        getNextWord();
+      } else {
+        inputElement.value = ""; // Reset de waarde van het invoerveld
+        inputElement.placeholder = randomWord[0].word;
+        inputElement.classList.add("shake-animation");
+        setTimeout(() => {
+          inputElement.classList.remove("shake-animation");
+        }, 500);
+      }
     }
   });
 
