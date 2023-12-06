@@ -4,7 +4,6 @@ let correctWordCount = 0;
 let charactersTyped = 0;
 let intervalId;
 
-// pak alle id's van de HTML.
 const timer = document.getElementById("timer");
 const instruction = document.getElementById("instruction");
 const startButton = document.getElementById("startButton");
@@ -16,26 +15,17 @@ const result = document.getElementById("result");
 resetButton.style.display = "none"; // op het begin zal de reset knop niet verschijnen.
 stopButton.style.display = "none";
 
-function startTimer() {
-  intervalId = setInterval(() => {
-    // met het ID kan je de setinterval later stoppen met clearInterval.
-    timerSeconds--; // hiermee zeg je dat de waarde van de tijd afgeteld moet worden.
-    timer.textContent = timerSeconds; // dus: Timer eLement = timerSeconds = 60 seconden, het print alleen de inhoud.
-    if (timerSeconds === 0) {
-      // als de tijdwaarde 0 is, laat het aftellen stoppen en het resultaat zichtbaar maken.
-      clearInterval(intervalId);
-      showResult();
-    }
-  }, 1000);
-}
-
+//het resultaat wordt een promise.
+// een promise helpt je om dingen op het juiste volgorde te zetten
+// zodat je niet vast blijft te zitten, terwijl je wacht.
 async function getNextWord() {
-  //het resultaat wordt een promise.
-  // een promise helpt je om dingen op het juiste volgorde te zetten
-  // zodat je niet vast blijft te zitten, terwijl je wacht.
   const response = await fetch("https://random-word-bit.vercel.app/word"); // lekker wachten tot voltooiing.
   const randomWord = JSON.parse(await response.text()); // hier ook, parse maakt de JSON text een string van.
 
+  return randomWord;
+}
+
+function displayNextWord(randomWord) {
   while (wordContainer.firstChild) {
     wordContainer.removeChild(wordContainer.firstChild);
   }
@@ -48,9 +38,8 @@ async function getNextWord() {
   const inputElement = document.createElement("input"); // pak de inputveld van de html
   inputElement.type = "text";
   inputElement.classList.add("textField");
-  inputElement.addEventListener("keydown", (event) => {
+  inputElement.addEventListener("keydown", async (event) => {
     if (event.key === "Enter") {
-      clearTimeout(debounceTimer);
       const userInput = inputElement.value.trim().toLowerCase();
       const correctWord = randomWord[0].word.toLowerCase();
       charactersTyped += userInput.length;
@@ -58,7 +47,8 @@ async function getNextWord() {
       if (userInput === correctWord) {
         correctWordCount++;
         wordsIndex++;
-        getNextWord();
+        const nextWord = await getNextWord();
+        displayNextWord(nextWord);
       } else {
         inputElement.value = ""; // Reset de waarde van het invoerveld
         inputElement.placeholder = randomWord[0].word;
@@ -73,6 +63,19 @@ async function getNextWord() {
   wordContainer.appendChild(wordElement);
   wordContainer.appendChild(inputElement);
   inputElement.focus();
+}
+
+function startTimer() {
+  // met het ID kan je de setinterval later stoppen met clearInterval.
+  intervalId = setInterval(() => {
+    timerSeconds--; // hiermee zeg je dat de waarde van de tijd afgeteld moet worden.
+    timer.textContent = timerSeconds; // dus: timerELement = timerSeconds = 60
+    if (timerSeconds === 0) {
+      // als de tijdwaarde 0 is, laat het aftellen stoppen en het resultaat zichtbaar maken.
+      clearInterval(intervalId);
+      showResult();
+    }
+  }, 1000);
 }
 
 function showResult() {
@@ -98,7 +101,7 @@ startButton.addEventListener("click", () => {
   wordContainer.innerHTML = "";
   timer.textContent = timerSeconds;
   startTimer();
-  getNextWord();
+  getNextWord().then((randomWord) => displayNextWord(randomWord));
 });
 
 stopButton.addEventListener("click", () => {
