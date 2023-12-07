@@ -4,7 +4,8 @@
 
 This project is a simple typing test web application where users can test their typing speed by typing as many words as possible within a minute.
 
-![Typetest](https://github.com/N-amer/typTest2023/assets/35346606/afbb9a95-265f-493c-ba9a-0d0b4ae31124)
+![image](https://github.com/N-amer/typTest2023/assets/35346606/3dd10ef7-2862-4aac-9654-84d8759b691c)
+
 
 
 ## Features
