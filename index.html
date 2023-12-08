@@ -13,16 +13,25 @@
     <div class="typTestContainer">
         <div class="upper-section">
             <h1>Typetest</h1>
-            <div id="timer">60</div>
+            <div id="timer">
+                <span id="selectedTimer"></span>
+            </div>
         </div>
         <div class="mid-section">
             <p id="instruction">Press start and type as many words as possible within one minute</p>
-            <button id="startButton">Start</button>
-            <div id="wordContainer"></div>
-            <button id="stopButton">Stop</button>
-            <div id="result"></div>
-            <button id="resetButton">Reset</button>
+            <label for="timerSelect">Choose time:</label>
+            <select id="timerSelect">
+                <option value="30">30 seconds</option>
+                <option value="60">60 seconds</option>
+                <option value="120">120 seconds</option>
+            </select>
         </div>
+        <button id="startButton">Start</button>
+        <div id="wordContainer"></div>
+        <button id="stopButton">Stop</button>
+        <div id="result"></div>
+        <button id="resetButton">Reset</button>
+    </div>
     </div>
     <script src="script.js"></script>
 </body>
