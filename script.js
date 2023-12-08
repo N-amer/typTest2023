@@ -1,4 +1,4 @@
-let timerSeconds = 60;
+let timerSeconds = "";
 let wordsIndex = 0;
 let correctWordCount = 0;
 let charactersTyped = 0;
@@ -6,6 +6,10 @@ let intervalId;
 
 const timer = document.getElementById("timer");
 const instruction = document.getElementById("instruction");
+const chooseContainer = document.getElementById("choose-container");
+const btn30 = document.getElementById("btn30");
+const btn60 = document.getElementById("btn60");
+const btn120 = document.getElementById("btn120");
 const startButton = document.getElementById("startButton");
 const stopButton = document.getElementById("stopButton");
 const resetButton = document.getElementById("resetButton");
@@ -14,6 +18,7 @@ const result = document.getElementById("result");
 
 resetButton.style.display = "none"; // op het begin zal de reset knop niet verschijnen.
 stopButton.style.display = "none";
+chooseContainer.style.display = "none";
 
 //het resultaat wordt een promise.
 // een promise helpt je om dingen op het juiste volgorde te zetten
@@ -90,18 +95,12 @@ function showResult() {
 }
 
 startButton.addEventListener("click", () => {
+  chooseContainer.style.display = "block";
   startButton.style.display = "none";
-  stopButton.style.display = "block";
-  wordContainer.innerHTML = "block";
-  instruction.style.display = "none";
-  timerSeconds = 60;
-  correctWordCount = 0;
-  charactersTyped = 0;
-  wordsIndex = 0;
+  stopButton.style.display = "none";
   wordContainer.innerHTML = "";
-  timer.textContent = timerSeconds;
-  startTimer();
-  getNextWord().then((randomWord) => displayNextWord(randomWord));
+  instruction.style.display = "none";
+  timerSeconds = 30;
 });
 
 stopButton.addEventListener("click", () => {
@@ -113,9 +112,10 @@ stopButton.addEventListener("click", () => {
 resetButton.addEventListener("click", () => {
   resetButton.style.display = "none";
   stopButton.style.display = "none";
+  chooseContainer.style.display = "none";
   startButton.style.display = "block";
   result.style.display = "none";
-  timerSeconds = 60;
+  timerSeconds = 30;
   charactersTyped = 0;
   correctWordCount = 0;
   wordsIndex = 0;
@@ -123,4 +123,52 @@ resetButton.addEventListener("click", () => {
   instruction.style.display = "block";
   timer.textContent = timerSeconds;
   location.reload();
+});
+
+btn30.addEventListener("click", () => {
+  startButton.style.display = "none";
+  stopButton.style.display = "block";
+  wordContainer.innerHTML = "";
+  instruction.style.display = "none";
+  chooseContainer.style.display = "none";
+  correctWordCount = 0;
+  charactersTyped = 0;
+  wordsIndex = 0;
+  wordContainer.innerHTML = "";
+  timer.textContent = 30;
+  timerSeconds = 30;
+  startTimer();
+  getNextWord().then((randomWord) => displayNextWord(randomWord));
+});
+
+btn60.addEventListener("click", () => {
+  startButton.style.display = "none";
+  stopButton.style.display = "block";
+  wordContainer.innerHTML = "";
+  instruction.style.display = "none";
+  chooseContainer.style.display = "none";
+  correctWordCount = 0;
+  charactersTyped = 0;
+  wordsIndex = 0;
+  wordContainer.innerHTML = "";
+  timer.textContent = 60;
+  timerSeconds = 60;
+  startTimer();
+  getNextWord().then((randomWord) => displayNextWord(randomWord));
+});
+
+btn120.addEventListener("click", () => {
+  startButton.style.display = "none";
+  stopButton.style.display = "block";
+  wordContainer.innerHTML = "";
+  instruction.style.display = "none";
+  chooseContainer.style.display = "none";
+  correctWordCount = 0;
+  charactersTyped = 0;
+  wordsIndex = 0;
+  wordContainer.innerHTML = "";
+  timer.textContent = 120;
+  timerSeconds = 120;
+  startTimer();
+  getNextWord().then((randomWord) => displayNextWord(randomWord));
 });
