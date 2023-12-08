@@ -138,6 +138,8 @@ btn30.addEventListener("click", () => {
   timer.textContent = 30;
   timerSeconds = 30;
   startTimer();
+  // Dit haalt asynchroon het volgende woord op voor de type-test met behulp van getNextWord -
+  // - en geeft het vervolgens weer met displayNextWord zodra de process voltooid is.
   getNextWord().then((randomWord) => displayNextWord(randomWord));
 });
 

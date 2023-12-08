@@ -156,10 +156,11 @@ button:hover {
     cursor: pointer;
     margin-top: 20px;
     border-radius: 8px;
+    transition: background 0.5s ease, transform 0.3s ease
 }
 
 #startButton:hover {
-    background-color:deepskyblue;
+    background: linear-gradient(to right, dodgerblue, deepskyblue);
     transform: scale(1.05);
 }
 
@@ -172,6 +173,7 @@ button:hover {
     cursor: pointer;
     margin-top: 20px;
     border-radius: 8px;
+    transition: background 0.5s ease, transform 0.3s ease
 }
 
 #resetButton:hover {
@@ -188,6 +190,7 @@ button:hover {
     cursor: pointer;
     margin-top: 20px;
     border-radius: 8px;
+    transition: background 0.5s ease, transform 0.3s ease
 }
 
 #stopButton:hover {
