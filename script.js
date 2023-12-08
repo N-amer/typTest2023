@@ -1,12 +1,10 @@
-let timerSeconds = 30;
+let timerSeconds = 60;
 let wordsIndex = 0;
 let correctWordCount = 0;
 let charactersTyped = 0;
 let intervalId;
 
 const timer = document.getElementById("timer");
-const selectedTimer = document.getElementById("selectedTimer");
-const timerSelect = document.getElementById("timerSelect");
 const instruction = document.getElementById("instruction");
 const startButton = document.getElementById("startButton");
 const stopButton = document.getElementById("stopButton");
@@ -92,8 +90,6 @@ function showResult() {
 }
 
 startButton.addEventListener("click", () => {
-  // Stel de timerwaarde in op basis van de geselecteerde optie
-  timerSeconds = parseInt(timerSelect.value);
   startButton.style.display = "none";
   stopButton.style.display = "block";
   wordContainer.innerHTML = "block";
