@@ -92,6 +92,8 @@ function showResult() {
 }
 
 startButton.addEventListener("click", () => {
+  // Stel de timerwaarde in op basis van de geselecteerde optie
+  timerSeconds = parseInt(timerSelect.value);
   startButton.style.display = "none";
   stopButton.style.display = "block";
   wordContainer.innerHTML = "block";
