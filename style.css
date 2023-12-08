@@ -76,6 +76,22 @@ h1{
     align-items: center;
 }
 
+#choose {
+    width: 100%;
+    color: red;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.selection {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+
+}
+
 #instruction {
     width: 100%;
     color: red;
