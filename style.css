@@ -81,6 +81,7 @@ h1{
     color: red;
     font-weight: bold;
     font-size: 1.25rem;
+    margin-bottom: 40px;
 }
 
 .selection {
@@ -95,7 +96,7 @@ button {
     color: #fff;
     padding: 10px 20px;
     margin: 10px 20px;
-    border: 2px solid transparent;
+    border: 2px transparent;
     border-radius: 5px;
     cursor: pointer;
     transition: border 0.3s, box-shadow 0.3s;
