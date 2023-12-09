@@ -25,7 +25,7 @@ chooseContainer.style.display = "none";
 // zodat je niet vast blijft te zitten, terwijl je wacht.
 async function getNextWord() {
   const response = await fetch("https://random-word-bit.vercel.app/word"); // lekker wachten tot voltooiing.
-  const randomWord = JSON.parse(await response.text()); // hier ook, parse maakt de JSON text een string van.
+  const randomWord = JSON.parse((await response.text()).trim().toLowerCase()); // hier ook, parse maakt de JSON text een string van.
 
   return randomWord;
 }
